@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResAuto">
+
+    <!--<com.zyt.uxin.custonview.customtextview.TestCanvasView2-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--/>-->
+    <com.zyt.uxin.custonview.customtextview.ClickAbleTextView
+        android:layout_width="wrap_content"
+        android:paddingLeft="10px"
+        android:paddingTop="50px"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:titleText="回复哈哈哈"
+        app:titleTextSize="50dp"
+        android:paddingBottom="100px"
+        />
+    <com.zyt.uxin.custonview.customtextview.ClickAbleTextView
+        android:layout_width="wrap_content"
+        android:layout_margin="50dp"
+        android:layout_height="wrap_content"
+        app:titleText="回复哈哈哈"
+        app:titleTextSize="50dp"
+        />
+</RelativeLayout>

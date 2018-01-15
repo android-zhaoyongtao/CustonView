@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:ignore="ResAuto">
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+
+
+    <Button
+        android:id="@+id/click"
+        android:layout_width="wrap_content"
+        android:background="@color/black_1e1e1e"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="click"/>
+
+
+    <com.zyt.uxin.custonview.customtextview.TestCustomProgressView
+        android:id="@+id/testCustomProgressView"
+        android:layout_width="400px"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:background="@color/bright_grey"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"/>
+
+    <com.zyt.uxin.custonview.customtextview.TestCustomFARGBiew
+        android:id="@+id/testCustomFARGBiew"
+        android:layout_width="500px"
+        android:layout_height="500px"/>
+
+    <com.zyt.uxin.custonview.customtextview.TestCustomFARGBiew
+        android:id="@+id/testCustomFARGBiew2"
+        android:layout_width="500px"
+        android:layout_height="500px"/>
+
+    <TextView
+        android:id="@+id/oag_animations"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="oag_animations"/>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:text="textView"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

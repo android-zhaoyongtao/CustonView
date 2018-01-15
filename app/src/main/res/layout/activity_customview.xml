@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResAuto">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView
+                android:id="@+id/testCanvasView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  TestCanvasView2: 8-11"
+                android:textSize="30sp"/>
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView2
+                android:id="@+id/testCanvasView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView2
+                android:id="@+id/testCanvasView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView2
+                android:id="@+id/testCanvasView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <com.zyt.uxin.custonview.customtextview.TestCanvasView2
+                android:id="@+id/testCanvasView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>
