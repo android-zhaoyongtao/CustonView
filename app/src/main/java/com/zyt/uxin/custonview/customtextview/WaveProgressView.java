@@ -119,19 +119,21 @@ public class WaveProgressView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //这里用到了缓存技术
-//        bitmap = Bitmap.createBitmap(totalwidth, totalheisht, Bitmap.Config.ARGB_8888);
-//        bitmapCanvas = new Canvas(bitmap);
-//        bitmapCanvas.drawOval(0,0,totalwidth,totalheisht,circlePaint);
-//        bitmapCanvas.drawPath(getWavePath(),wavePaint);
-//
-//        canvas.drawBitmap(bitmap, 0, 0, null);
-
-
-        canvas.drawPath(getWavePath(), wavePaint);//此行  关键代码
-        wavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        RectF ovalRect = new RectF(0, 0, totalwidth, totalheisht);
-        canvas.drawOval(ovalRect,wavePaint);
+        bitmap = Bitmap.createBitmap(totalwidth, totalheisht, Bitmap.Config.ARGB_8888);
+        bitmapCanvas = new Canvas(bitmap);
+        Paint circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        bitmapCanvas.drawOval(0, 0, totalwidth, totalheisht, circlePaint);
+        wavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));//根据绘制顺序的不同选择相应的模式即可
+        bitmapCanvas.drawPath(getWavePath(), wavePaint);
         wavePaint.setXfermode(null);
+        canvas.drawBitmap(bitmap, 0, 0, null);
+
+
+//        canvas.drawPath(getWavePath(), wavePaint);//此行  关键代码
+//        wavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+//        RectF ovalRect = new RectF(0, 0, totalwidth, totalheisht);
+//        canvas.drawOval(ovalRect,wavePaint);
+//        wavePaint.setXfermode(null);
     }
 
 
