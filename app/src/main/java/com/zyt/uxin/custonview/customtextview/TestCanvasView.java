@@ -179,6 +179,7 @@ public class TestCanvasView extends View {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 //        Paint 设置颜色的方法有两种：一种是直接用 Paint.setColor/ARGB() 来设置颜色，另一种是使用 Shader 来指定着色方案。
         paint.setColor(Color.GREEN);//设置颜色
+        paint.setShader(null);
         Shader shader = new LinearGradient(100, 100, 800, 800, Color.GREEN, Color.RED, Shader.TileMode.CLAMP);
         Shader shader1 = new RadialGradient(400, 400, 400, Color.GREEN, Color.RED, Shader.TileMode.CLAMP);
         Shader shader2 = new SweepGradient(300, 500, Color.GREEN, Color.RED);

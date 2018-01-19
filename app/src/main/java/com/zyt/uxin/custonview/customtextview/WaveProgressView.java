@@ -128,11 +128,11 @@ public class WaveProgressView extends View {
         wavePaint.setXfermode(null);
         canvas.drawBitmap(bitmap, 0, 0, null);
 
-
-//        canvas.drawPath(getWavePath(), wavePaint);//此行  关键代码
-//        wavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
 //        RectF ovalRect = new RectF(0, 0, totalwidth, totalheisht);
 //        canvas.drawOval(ovalRect,wavePaint);
+//
+//        wavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+//        canvas.drawPath(getWavePath(), wavePaint);//此行  关键代码
 //        wavePaint.setXfermode(null);
     }
 

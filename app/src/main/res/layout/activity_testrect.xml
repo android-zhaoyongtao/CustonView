@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:ignore="ResAuto">
 
+    <ImageView
+        android:layout_below="@+id/RelativeLayout"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="-30dp"
+        android:layout_marginBottom="-30dp"
+        android:src="@drawable/rect209"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <RelativeLayout
         android:id="@+id/RelativeLayout"
         android:layout_width="500px"
@@ -25,4 +33,5 @@
             android:gravity="center"
             android:text="TextView"/>
     </RelativeLayout>
+
 </RelativeLayout>

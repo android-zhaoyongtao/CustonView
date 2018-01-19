@@ -14,11 +14,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        addContentView();
         setContentView(R.layout.activity_main);
         findViewById(R.id.clickabletextview).setOnClickListener(this);
         findViewById(R.id.customview).setOnClickListener(this);
         findViewById(R.id.animatoractivity).setOnClickListener(this);
         findViewById(R.id.waveactivity).setOnClickListener(this);
+        findViewById(R.id.rectactivity).setOnClickListener(this);
+        findViewById(R.id.relativeactivity).setOnClickListener(this);
     }
 
     @Override
@@ -33,8 +36,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.animatoractivity:
                 startActivity(new Intent(this, AnimatorActivity.class));
                 break;
-         case R.id.waveactivity:
+            case R.id.waveactivity:
                 startActivity(new Intent(this, WaveVIewActivity.class));
+                break;
+            case R.id.rectactivity:
+                startActivity(new Intent(this, RectActivity.class));
+                break;
+            case R.id.relativeactivity:
+                startActivity(new Intent(this, RelativeLayoutActivity.class));
                 break;
         }
     }
