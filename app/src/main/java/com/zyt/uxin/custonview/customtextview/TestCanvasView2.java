@@ -10,6 +10,10 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -107,8 +111,29 @@ public class TestCanvasView2 extends View {
         canvas.restore();
         //圆图还有drawpath,paint可以setbitmapshader
         //圆图还有drawroundrect
+        //圆图还有paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
+    public Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
+        Bitmap roundCornerBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(roundCornerBitmap);
+        int color = 0xff424242;// int color = 0xff424242;
+        Paint paint = new Paint();
+        paint.setColor(color);
+        // 防止锯齿
+        paint.setAntiAlias(true);
+        Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        RectF rectF = new RectF(rect);
+        float roundPx = pixels;
+        // 相当于清屏
+        canvas.drawARGB(0, 0, 0, 0);
+        // 先画了一个带圆角的矩形
+        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        // 再把原来的bitmap画到现在的bitmap！！！注意这个理解
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        return roundCornerBitmap;
+    }
     @SuppressLint("NewApi")
     private void onDraw9(Canvas canvas) {
         //    2 几何变换

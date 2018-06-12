@@ -52,7 +52,7 @@ public class TestCanvasView extends View {
         paint.setColor(Color.GREEN);//设置颜色
         paint.setStrokeWidth(5);//设置线条宽度
         paint.setTextSize(50);//设置文字大小
-        canvas.drawText("onDraw:" + drawNumber, 830, 80, paint);
+        canvas.drawText("↓ onDraw:" + drawNumber, 830, 80, paint);
         switch (drawNumber) {
             case 1:
                 onDraw1(canvas);
@@ -202,7 +202,7 @@ public class TestCanvasView extends View {
 //        paint.setXfermode(xfermode);// setXfermode() 用来处理源图像和 View 已有内容的关系。
 //        canvas.drawRect(100, 100, 200, 800, paint);
 //        paint.setXfermode(null); // 用完及时清除 Xfermode
-        customHeight = 1000;
+        customHeight = 400;
     }
 
     protected void onDraw4(Canvas canvas) {

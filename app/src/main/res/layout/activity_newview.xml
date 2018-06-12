@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResAuto">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:iconifiedByDefault="false"
+                android:queryHint="请输入搜索内容"/>
+
+            <TextSwitcher
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"></TextSwitcher>
+
+            <TextSwitcher
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextSwitcher>
+
+            <ViewSwitcher
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></ViewSwitcher>
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <DigitalClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <CheckedTextView
+                android:layout_width="wrap_content"
+                android:text="CheckedTextView"
+                android:checked="true"
+                android:layout_height="wrap_content"/>
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:text="Switch"
+                android:hint="你说啥"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"/>
+
+            <ToggleButton
+                android:textOff="纵向排列"
+                android:textOn="横向排列"
+                android:checked="true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

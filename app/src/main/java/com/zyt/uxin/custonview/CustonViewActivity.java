@@ -59,6 +59,7 @@ public class CustonViewActivity extends AppCompatActivity {
         testCanvasView5.setDrawNumber(5);
         testCanvasView6.setDrawNumber(6);
         testCanvasView7.setDrawNumber(7);
+
         testCanvasView8.setDrawNumber(8);
         testCanvasView9.setDrawNumber(9);
         testCanvasView10.setDrawNumber(10);

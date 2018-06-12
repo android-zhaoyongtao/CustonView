@@ -169,6 +169,11 @@ public class WaveProgressView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         LogUtils.d("WaveProgressView", "onTouchEvent-gety():" + event.getY());
+        /**
+         1 getAction:触摸动作的原始32位信息，包括事件的动作，触控点信息
+         2 getActionMask:触摸的动作,按下，抬起，滑动，多点按下，多点抬起
+         3 getActionIndex:触控点信息
+         */
         int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:

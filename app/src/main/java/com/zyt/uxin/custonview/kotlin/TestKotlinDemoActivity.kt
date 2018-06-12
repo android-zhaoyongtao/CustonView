@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import junit.framework.Assert.*
+import org.w3c.dom.Text
 import java.io.File
 import kotlin.jvm.internal.Intrinsics
 
@@ -221,7 +222,8 @@ class TestKotlinDemoActivity : AppCompatActivity() {
 
     fun method8() {
         var c = Customerrr0("", "")
-        val name = c.component1()
+        var name = c.component1()
+        name = c.name
         var copy = c.copy("1", "")
         val list = listOf(1, 2, 3, 4, 5, 6)
         assertTrue(list.any { it % 2 == 0 })
@@ -265,7 +267,7 @@ class TestKotlinDemoActivity : AppCompatActivity() {
     //1.2.11 Lazy属性
     fun method12(): Unit {
         //得到lazy对象
-        val init = lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
+        val init: Lazy<TextView> = lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             TextView(this).apply {
                 textSize = 10f
             }
@@ -394,8 +396,8 @@ class TestKotlinDemoActivity : AppCompatActivity() {
     }
 
     fun method17(): Unit {
-        //传递参数时可以使用参数名进行赋值，这样不必保证传递参数的顺序
         method16(1, 5)
+        //传递参数时可以使用参数名进行赋值，这样不必保证传递参数的顺序
         method16(end = 5, start = 0)
         method16(5)//如果没有传递相应的参数，则会使用默认值
         method16(end = 5)//如果没有传递相应的参数，则会使用默认值
@@ -505,11 +507,13 @@ class TestKotlinDemoActivity : AppCompatActivity() {
             any is String -> print("x is string")
             else -> print("x is Any")
         }
-        loop2@ for (i in 1..100) {//在 Kotlin 中表达式可以添加标签。标签通过 @ 结尾来表示
-            for (j in i..100) {
+        loop1@ for (i in 1..100) {//在 Kotlin 中表达式可以添加标签。标签通过 @ 结尾来表示
+            loop2@ for (j in i..100) {
                 if (i <= j) {
                     print("I:${i};J:${j}")
                     break@loop2
+                } else {
+                    break@loop1
                 }
             }
         }
@@ -558,6 +562,7 @@ class TestKotlinDemoActivity : AppCompatActivity() {
     interface A2 {
         //接口不需要open修饰
         fun fun1(): Unit {//接口的成员变量默认是 open 的
+            print("<A2>.fun1()")
         }
     }
 
@@ -570,7 +575,7 @@ class TestKotlinDemoActivity : AppCompatActivity() {
         }
         fun funInA3(): Unit {
             super<A1>.fun1()//表示使用父类中提供的方法我们用 super<Base>表示:
-            super<A2>.fun1()
+            super<A2>.fun1()//如果父类和接口中有两个同名方法,可以这样区分调哪一个
         }
     }
 

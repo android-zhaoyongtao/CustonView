@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.waveactivity).setOnClickListener(this);
         findViewById(R.id.rectactivity).setOnClickListener(this);
         findViewById(R.id.relativeactivity).setOnClickListener(this);
+        findViewById(R.id.newviewactivity).setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.relativeactivity:
                 startActivity(new Intent(this, RelativeLayoutActivity.class));
+                break;
+            case R.id.newviewactivity:
+                startActivity(new Intent(this, NewViewActivity.class));
                 break;
         }
     }

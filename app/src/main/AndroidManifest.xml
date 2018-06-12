@@ -19,6 +19,9 @@
         <activity android:name=".CustonViewActivity" android:screenOrientation="portrait"/>
         <activity android:name=".AnimatorActivity" android:screenOrientation="portrait"/>
         <activity
+            android:name=".NewViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".RelativeLayoutActivity"
             android:screenOrientation="portrait"/>
         <activity

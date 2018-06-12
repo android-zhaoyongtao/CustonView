@@ -1,11 +1,13 @@
 package com.zyt.uxin.custonview;
 
+import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
@@ -68,11 +70,37 @@ public class AnimatorActivity extends AppCompatActivity {
 //                animate.rotationBy(300).setInterpolator(new LinearInterpolator());
                 animate.rotationYBy(50).setInterpolator(new LinearInterpolator());
                 animate.setDuration(duition).alpha(0.0f).alpha(1.0f).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        super.onAnimationStart(animation);
+                    }
+                }).withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        //动画结束,走这里
+                    }
                 });
 
+                ValueAnimator valueAnimator = new ValueAnimator();
+                valueAnimator.setIntValues(10, 15, 30);
+                valueAnimator = ValueAnimator.ofInt(10, 15, 30);//等同于⤴️
+                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        int i = (int) animation.getAnimatedValue();
+                        System.out.println(i);
+                    }
+                });
+                valueAnimator.start();
 
-                //自定义进度
+                //自定义进度 ObjectAnimator extends ValueAnimator
                 ObjectAnimator objectAnimator = ObjectAnimator.ofInt(testCustomProgressView, "progress2", 1, 30);//会自动去寻找setProgress2方法
+                objectAnimator.setStartDelay(300);//延迟
                 objectAnimator.setDuration(duition);
                 objectAnimator.start();
 
