@@ -41,8 +41,8 @@ public class TouchView extends ViewGroup {
 
     }
 
-    private GestureDetectorCompat mDetector;
-    private VelocityTracker mVelocityTracker = null;
+    private GestureDetectorCompat mDetector;//手势识别工具类。 有了这一神器，不需要对touch事件写一堆代码判断手势了。
+    private VelocityTracker mVelocityTracker = null;//提供的用来记录滑动速度的一个类,可以监控手指移动的速度
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
