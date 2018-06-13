@@ -17,7 +17,9 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -97,6 +99,9 @@ public class AnimatorActivity extends AppCompatActivity {
                     }
                 });
                 valueAnimator.start();
+
+                Animation an = new TranslateAnimation(0f, 0f, 0f, 0f);
+                new TextView(getBaseContext()).startAnimation(an);
 
                 //自定义进度 ObjectAnimator extends ValueAnimator
                 ObjectAnimator objectAnimator = ObjectAnimator.ofInt(testCustomProgressView, "progress2", 1, 30);//会自动去寻找setProgress2方法

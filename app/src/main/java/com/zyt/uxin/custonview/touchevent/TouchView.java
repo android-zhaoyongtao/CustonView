@@ -6,6 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.VelocityTrackerCompat;
+import android.support.v4.view.ViewConfigurationCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -154,6 +155,7 @@ public class TouchView extends ViewGroup {
 //        mScroller.fling(int startX, int startY, int velocityX, int velocityY,int minX, int maxX, int minY, int maxY);
         ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());//主要定义了UI中所使用到的标准常量
         viewConfiguration.getScaledTouchSlop();//获取触摸与滑动 的边界
+        ViewConfigurationCompat.getScaledPagingTouchSlop(viewConfiguration);
         viewConfiguration.getScaledMinimumFlingVelocity();//获取最小的滑动速度
     }
 }
