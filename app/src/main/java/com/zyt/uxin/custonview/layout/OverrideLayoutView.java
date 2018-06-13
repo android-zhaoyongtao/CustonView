@@ -1,10 +1,12 @@
 package com.zyt.uxin.custonview.layout;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+//layout内部布局的定制
 public class OverrideLayoutView extends ViewGroup {
 
     public OverrideLayoutView(Context context) {
@@ -21,11 +23,15 @@ public class OverrideLayoutView extends ViewGroup {
 
     private int mTotalWidth;
     private int mTotalLength;
+    private Rect[] childViewsPoint;//保存每个子view位置
 
+    //一,重写onMeasure()来计算内部布局
     //onMeasure()的重写对于ViewGroup来说包含三部分内容
     //1.调用每个子view的measure(),让子view自我测量
     //2.根据子view得出的尺寸,得出子view的位置,并吧它们 的位置保存下来
     //3.根据子view的位置和尺寸计算出自己的尺寸,并用setMeasureEimension()保存
+    //二,重写onLayout()来摆放子view
+    //
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -33,7 +39,7 @@ public class OverrideLayoutView extends ViewGroup {
         int selfWidthMode = MeasureSpec.getMode(widthMeasureSpec);
         int selfWidthSize = MeasureSpec.getSize(widthMeasureSpec);
         int usedWidth = 0;
-
+        childViewsPoint = new Rect[getChildCount()];
         for (int i = 0; i < getChildCount(); i++) {
             View childView = getChildAt(i);
             LayoutParams lp = childView.getLayoutParams();
@@ -77,7 +83,7 @@ public class OverrideLayoutView extends ViewGroup {
                     break;
             }
         }
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(resolveSize(mTotalWidth, widthMeasureSpec), resolveSize(mTotalLength, heightMeasureSpec));//保存自己的宽高
     }
 
     /*
@@ -96,6 +102,11 @@ public class OverrideLayoutView extends ViewGroup {
      */
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-
+        //只做一件事,调用每个子view的layout()
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+            Rect childRect = childViewsPoint[i];//相对于父view的左上右下的相对坐标,通过位置和尺寸转换而来
+            child.layout(childRect.left, childRect.top, childRect.right, childRect.bottom);//传进去,让它们把自己的位置保存下来,进行自我布局
+        }
     }
 }
