@@ -22,12 +22,13 @@ public class OverrideLayoutView extends ViewGroup {
     private int mTotalWidth;
     private int mTotalLength;
 
+    //onMeasure()的重写对于ViewGroup来说包含三部分内容
+    //1.调用每个子view的measure(),让子view自我测量
+    //2.根据子view得出的尺寸,得出子view的位置,并吧它们 的位置保存下来
+    //3.根据子view的位置和尺寸计算出自己的尺寸,并用setMeasureEimension()保存
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //onMeasure()的重写对于ViewGroup来说包含三部分内容
-        //1.调用每个子view的measure(),让子view自我测量
-        //2.根据子view得出的尺寸,得出子view的位置,并吧它们 的位置保存下来
-        //3.根据子view的位置和尺寸计算出自己的尺寸,并用setMeasureEimension()保存
+
 
         int selfWidthMode = MeasureSpec.getMode(widthMeasureSpec);
         int selfWidthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -79,6 +80,20 @@ public class OverrideLayoutView extends ViewGroup {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
+    /*
+    测量子view时,可以拿到每个子view的和位置,保存下来就好
+    至于尺寸,而且99%的时候子view测得的尺寸就是最终尺寸,
+    用的时候调用getMeasuredWidth 就行
+    为什么保存它们?因为现在是测量阶段,在接下来layout()才会使用
+     */
+    /*
+    关于保存子view位置的两点说明:
+    1.并不是所有的layout都需要保存子view的位置
+      比如LinearLayout,它的内容全都是横向竖向排开的 ,子view的位置可以再布局阶段通过一个个的尺寸累加起来得到
+    2.有些时候对某些子view需要重复测量两次或多次才能得到正确的尺寸和位置
+      给出新的MeasureSpec直到结果满意
+      比如LinearLayout,对子view match_parent的测量
+     */
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
