@@ -162,6 +162,7 @@ public class ClickAbleTextView extends View {
 //            mPaint.getTextBounds(mTitleText,0,mTitleText.length(),mBound);
             heigh = getPaddingTop() + mBound.height() + getPaddingBottom();
         }
+        //等同于
         int finalW = resolveSize( getPaddingLeft() + mBound.width() + getPaddingRight(),widthMeasureSpec);
         int finalH = resolveSize(getPaddingTop() + mBound.height() + getPaddingBottom(),heightMeasureSpec);
 

@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.Scroller;
@@ -43,7 +44,6 @@ public class TouchView extends ViewGroup {
 
     private GestureDetectorCompat mDetector;//手势识别工具类。 有了这一神器，不需要对touch事件写一堆代码判断手势了。
     private VelocityTracker mVelocityTracker = null;//提供的用来记录滑动速度的一个类,可以监控手指移动的速度
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
@@ -150,5 +150,10 @@ public class TouchView extends ViewGroup {
             postInvalidate();
 //                isMove = true;
         }
+        //根据初始速度继续华东一段距离
+//        mScroller.fling(int startX, int startY, int velocityX, int velocityY,int minX, int maxX, int minY, int maxY);
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());//主要定义了UI中所使用到的标准常量
+        viewConfiguration.getScaledTouchSlop();//获取触摸与滑动 的边界
+        viewConfiguration.getScaledMinimumFlingVelocity();//获取最小的滑动速度
     }
 }
