@@ -6,8 +6,12 @@
     <!--<attr name="titleTextSize" format="dimension"/>-->
     <declare-styleable name="ClickAbleTextView">
         <!--注意声明和使用的区别，差别就是有没有format-->
-        <attr name="titleText" />
+        <attr name="titleText"/>
         <attr name="titleTextColor" format="color"/>
         <attr name="titleTextSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MapView">
+        <attr name="mv_background" format="reference"/>
     </declare-styleable>
 </resources>

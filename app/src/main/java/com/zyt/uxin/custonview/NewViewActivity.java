@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.AnalogClock;
@@ -41,6 +42,12 @@ public class NewViewActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
 //        addContentView();
         setContentView(R.layout.activity_newview);
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         SearchView searchView = findViewById(R.id.searchView);
         // 设置搜索文本监听
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -87,7 +94,7 @@ public class NewViewActivity extends AppCompatActivity implements View.OnClickLi
         RemoteViews remoteViews;//远程视图.桌面小组件
 
         Scroller mScroller = new Scroller(this, new LinearInterpolator());//平滑滑动应用
-        mScroller.startScroll(0, 0, 100, 100, 3000);
+//        mScroller.startScroll(0, 0, 100, 100, 3000);
 //        @Override
 //        public void computeScroll () {//view的方法中
 //            //判断是否还在滚动，还在滚动为true
@@ -104,8 +111,18 @@ public class NewViewActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-        }
+
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        int i = keyCode;
+        return super.onKeyDown(keyCode, event);
+    }
 }

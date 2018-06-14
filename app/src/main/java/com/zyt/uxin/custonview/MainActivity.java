@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.rectactivity).setOnClickListener(this);
         findViewById(R.id.relativeactivity).setOnClickListener(this);
         findViewById(R.id.newviewactivity).setOnClickListener(this);
+        findViewById(R.id.MapViewActivity).setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.newviewactivity:
                 startActivity(new Intent(this, NewViewActivity.class));
+                break;
+            case R.id.MapViewActivity:
+                startActivity(new Intent(this, MapViewActivity.class));
                 break;
         }
     }

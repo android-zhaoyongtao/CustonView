@@ -28,6 +28,9 @@
             android:name=".WaveVIewActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".MapViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".RectActivity"
             android:screenOrientation="portrait"/>
     </application>
