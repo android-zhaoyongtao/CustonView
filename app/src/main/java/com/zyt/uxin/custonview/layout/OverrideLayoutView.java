@@ -48,7 +48,7 @@ public class OverrideLayoutView extends ViewGroup {
             // match_parent=>MATCH_PARENT
             //xxdp/xxsp=>具体的像素值
 
-            int childWidthSpec;//测量后字view的width
+            int childWidthSpec = 0;//测量后字view的width
 
             switch (lp.width) {
                 case LayoutParams.MATCH_PARENT://填满父控件
@@ -82,6 +82,10 @@ public class OverrideLayoutView extends ViewGroup {
                     childWidthSpec = MeasureSpec.makeMeasureSpec(lp.width, MeasureSpec.EXACTLY);
                     break;
             }
+            childView.measure(childWidthSpec, 123456);
+            childViewsPoint[i].left = usedWidth;
+            childViewsPoint[i].right = usedWidth + childView.getMeasuredWidth();
+            usedWidth += childView.getMeasuredWidth();
         }
         setMeasuredDimension(resolveSize(mTotalWidth, widthMeasureSpec), resolveSize(mTotalLength, heightMeasureSpec));//保存自己的宽高
     }

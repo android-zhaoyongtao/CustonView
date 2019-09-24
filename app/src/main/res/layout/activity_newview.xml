@@ -65,7 +65,6 @@
                 android:textOff="纵向排列"
                 android:textOn="横向排列"
                 android:checked="true"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

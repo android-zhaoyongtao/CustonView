@@ -56,7 +56,7 @@ public class TouchEventView extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {//event事件类型:按下,抬起,其他   坐标   其他各种信息
-        //主要是down事件return true其他也会拦截,所以return false无影响,但还是统一吧.myfirsttargetview
+        //主要是down事件return true其他也会拦截,所以return false无影响,但还是统一吧.mFirstTouchTarget
         return super.onTouchEvent(event);
     }
 

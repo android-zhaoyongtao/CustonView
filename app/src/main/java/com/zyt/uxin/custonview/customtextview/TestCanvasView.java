@@ -52,7 +52,7 @@ public class TestCanvasView extends View {
         paint.setColor(Color.GREEN);//设置颜色
         paint.setStrokeWidth(5);//设置线条宽度
         paint.setTextSize(50);//设置文字大小
-        canvas.drawText("↓ onDraw:" + drawNumber, 830, 80, paint);
+        canvas.drawText("↓ onDraw:" + drawNumber, 800, 80, paint);
         switch (drawNumber) {
             case 1:
                 onDraw1(canvas);
@@ -142,7 +142,7 @@ public class TestCanvasView extends View {
 
         path.setFillType(Path.FillType.EVEN_ODD);//交叉填充
         path.setFillType(Path.FillType.WINDING);//全填充
-
+        paint.setColor(Color.RED);
         canvas.drawPath(path, paint);
         customHeight = 1000;
     }

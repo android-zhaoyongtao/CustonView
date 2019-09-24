@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.newviewactivity).setOnClickListener(this);
         findViewById(R.id.MapViewActivity).setOnClickListener(this);
         findViewById(R.id.DifferentSizeActivity).setOnClickListener(this);
+        findViewById(R.id.VectorCarActivity).setOnClickListener(this);
     }
 
     @Override
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.DifferentSizeActivity:
                 startActivity(new Intent(this, DifferentSizeActivity.class));
+                break;
+            case R.id.VectorCarActivity:
+                startActivity(new Intent(this, VectorCarActivity.class));
                 break;
         }
     }
