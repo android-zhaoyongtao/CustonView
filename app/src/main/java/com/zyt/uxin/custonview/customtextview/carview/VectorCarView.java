@@ -1,4 +1,4 @@
-package com.zyt.uxin.custonview.customtextview;
+package com.zyt.uxin.custonview.customtextview.carview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -277,7 +277,6 @@ public class VectorCarView extends View {
         r = r.length() == 1 ? "0" + r : r;
         g = g.length() == 1 ? "0" + g : g;
         b = b.length() == 1 ? "0" + b : b;
-//        LogUtils.e("");
         return "#" + r + g + b;
     }
 
@@ -292,7 +291,6 @@ public class VectorCarView extends View {
         if (list == null) {
             return;
         }
-
         for (ItemProvins item : list) {
             if (item.handlerToucthOnclick(x / scaleX, y / scaleY)) {
                 itemProvins = item;

@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
-import android.graphics.Point;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Region;
@@ -13,28 +12,25 @@ import android.text.TextUtils;
 
 
 public class ItemProvins {
-    private int color;
-    private Point point;//文字中心点
+    private int color;//区域颜色
     private Path path;//路径
     private RectF rectF;//矩形区域
-    private boolean isNeedDraw;
-    private String provinceName;//文字
-    private Paint paintText;
+    private boolean isNeedDraw;//绘制开关
+    private String provinceName;//区域文字
+    private Paint paintText;//文字和选中边框的的画笔
 
-    public ItemProvins(Path path) {
-        this.path = path;
-        initTextPaint();
-    }
-
-    public ItemProvins(Point point, Path path, String provinceName) {
-        this.point = point;
-        this.path = path;
-        this.provinceName = provinceName;
-        initTextPaint();
-    }
+//    public ItemProvins(Path path) {
+//        this.path = path;
+//        initTextPaint();
+//    }
+//
+//    public ItemProvins( Path path, String provinceName) {
+//        this.path = path;
+//        this.provinceName = provinceName;
+//        initTextPaint();
+//    }
 
     public ItemProvins(Path path, String provinceName, RectF rectf) {
-        this.point = point;
         this.path = path;
         this.provinceName = provinceName;
         this.rectF = rectf;
@@ -55,44 +51,21 @@ public class ItemProvins {
             paint.setColor(color);
             canvas.drawPath(path, paint);
 
-//            RectF rectF = new RectF();
-//            path.computeBounds(rectF, true);
             if (isSelected) {
                 canvas.drawPath(path, paintText);
-
-//                canvas.drawRect(rectF, paintText);
+//                canvas.drawRect(rectF, paintText);//矩形区域
             }
             if (!TextUtils.isEmpty(provinceName)) {
 //                LogUtils.e("name", rectF.left + "  " + rectF.top + "  " + rectF.right + "  " + rectF.bottom);
                 float widthText = paintText.measureText(provinceName);
-                //1 矩形中心点
-//                canvas.drawText(provinceName, rectF.centerX() - widthText / 2, rectF.centerY() - paint.getStrokeWidth(), paintText);
-                //2 xy所有点的平均值
-                PointF center = getCenterPointByPath();
-                canvas.drawText(provinceName, center.x - widthText / 2, center.y - paintText.getStrokeWidth(), paintText);
-                //3 长*宽最大的地方
+                //1 用矩形中心点
+                canvas.drawText(provinceName, rectF.centerX() - widthText / 2, rectF.centerY() - paintText.getStrokeWidth(), paintText);
+                //2 用xy所有点的平均值
+//                PointF center = getCenterPointByPath();
+//                canvas.drawText(provinceName, center.x - widthText / 2, center.y - paintText.getStrokeWidth(), paintText);
+                //3 用长*宽最大的地方
             }
-        }/*else{
-            RectF rectF = new RectF();
-            path.computeBounds(rectF,true);
-            if(isSelected){
-                paint.clearShadowLayer();
-                paint.setStrokeWidth(1);
-                paint.setStyle(Paint.Style.FILL);
-                paint.setColor(color);
-                canvas.drawPath(path, paint);
-                paint.setStyle(Paint.Style.STROKE);
-                int strokeColor = 0xFFD0E8F4;
-                paint.setColor(strokeColor);
-                canvas.drawPath(path, paint);
-                canvas.drawRect(rectF,paintText);
-            }
-            if(!TextUtils.isEmpty(provinceName)){
-                LogUtils.e("name",rectF.left+"  " +rectF.top+"  " +rectF.right+"  " +rectF.bottom);
-                float widthText = paint.measureText(provinceName);
-                canvas.drawText(provinceName,rectF.centerX() - widthText/2,rectF.centerY() - paint.getStrokeWidth(),paintText);
-            }
-        }*/
+        }
 
     }
 

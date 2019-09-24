@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
-import android.view.View;
-import android.widget.TextView;
 
-import com.zyt.uxin.custonview.customtextview.VectorCarView;
+import com.zyt.uxin.custonview.customtextview.carview.VectorCarView;
 
 /**
  * textview不同汉字大小

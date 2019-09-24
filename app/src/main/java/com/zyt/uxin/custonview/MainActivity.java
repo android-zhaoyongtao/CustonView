@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.newviewactivity).setOnClickListener(this);
         findViewById(R.id.MapViewActivity).setOnClickListener(this);
         findViewById(R.id.DifferentSizeActivity).setOnClickListener(this);
-        findViewById(R.id.VectorCarActivity).setOnClickListener(this);
+        View view = findViewById(R.id.VectorCarActivity);
+        view.setOnClickListener(this);
+        view.performClick();
     }
 
     @Override
