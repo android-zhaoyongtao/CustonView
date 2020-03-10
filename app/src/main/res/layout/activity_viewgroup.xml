@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResAuto">
+
+    <com.zyt.uxin.custonview.customtextview.touchaction.TouchRelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="800px"
+        android:layout_height="800px"
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="100px"
+        android:background="#cccccc">
+
+        <com.zyt.uxin.custonview.customtextview.touchaction.TouchView
+            android:id="@+id/TextView"
+            android:layout_width="300px"
+            android:layout_height="300px"
+            android:background="#ff00ff00"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <com.zyt.uxin.custonview.customtextview.touchaction.TouchButtomView
+            android:id="@+id/Button1"
+            android:layout_width="300px"
+            android:layout_height="300px"
+            android:onClick="button1Click"
+            android:background="#ffff0000"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="Button1" />
+
+        <com.zyt.uxin.custonview.customtextview.touchaction.TouchView2
+            android:id="@+id/TextView2"
+            android:layout_width="300px"
+            android:layout_height="300px"
+            android:background="#ff5e41"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="TextView" />
+    </com.zyt.uxin.custonview.customtextview.touchaction.TouchRelativeLayout>
+
+</RelativeLayout>

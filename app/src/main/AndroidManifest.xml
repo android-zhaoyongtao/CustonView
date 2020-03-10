@@ -40,6 +40,9 @@
         <activity
             android:name=".VectorCarActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestTouchActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

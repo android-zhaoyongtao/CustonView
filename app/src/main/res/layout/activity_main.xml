@@ -123,6 +123,17 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/TestTouchActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/red"
+                android:text="TestTouchActivity"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
